@@ -4,6 +4,8 @@
 public class BitBlock6 {
     boolean bits[];
     private final int bitBlockLen=6;
+    final int SboxArray[][][]=new int[2][][];
+
     public BitBlock6()
     {
         bits=new boolean[6];
@@ -31,6 +33,20 @@ public class BitBlock6 {
         }
         return result;
 
+    }
+    public int convertToint(int start,int end)
+    {
+        int solution=0;
+        int j=0;
+        for(int i=start;i<=end;i++)
+        {
+            if(bits[i])
+            {
+                solution+=Math.pow(2,j);
+            }
+            j++;
+        }
+        return solution;
     }
     public BitBlock8 substitute()
     {

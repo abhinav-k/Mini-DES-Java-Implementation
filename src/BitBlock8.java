@@ -2,23 +2,24 @@
  * Created by LenovoT420 on 3/2/2017.
  */
 public class BitBlock8 {
-   private boolean bits[];
+   private BitBlock4 left;
+   private BitBlock4 right;
    private final int bitBlockLen=8;
     public BitBlock8()
     {
-        bits=new boolean[8];
+        left=new BitBlock4();
+        right=new BitBlock4();
     }
     public BitBlock8 (boolean [] bits)
     {
-        this.bits=bits;
+        left=new BitBlock4(bits,0,3);
+        right=new BitBlock4(bits,4,7);
     }
     public BitBlock8 exor(BitBlock8 bitBlock)
     {
         BitBlock8 result= new BitBlock8();
-        for(int i=0;i<8;i++)
-        {
-            result.bits[i]=this.bits[i]^bitBlock.bits[i];
-        }
+        result.left=this.left.exor(bitBlock.left);
+        result.right=this.right.exor(bitBlock.right);
         return result;
 
     }
