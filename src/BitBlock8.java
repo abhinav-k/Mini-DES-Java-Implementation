@@ -10,6 +10,11 @@ public class BitBlock8 {
         left=new BitBlock4();
         right=new BitBlock4();
     }
+    public BitBlock8(BitBlock4 left,BitBlock4 right)
+    {
+        this.right=right;
+        this.left=left;
+    }
     public BitBlock8 (boolean [] bits)
     {
         left=new BitBlock4(bits,0,3);
