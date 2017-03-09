@@ -5,7 +5,6 @@ public class BitBlock6 {
     private final int bitBlockLen=6;
     BitBlock3 left;
     BitBlock3 right;
-    final int SboxArray[][][]={{{5,2,1,6,3,4,7,0},{1,4,6,2,0,7,5,3}},{{4,0,6,5,7,1,3,2},{5,3,0,7,6,2,1,4}}};
 
     public BitBlock6()
     {
@@ -13,7 +12,62 @@ public class BitBlock6 {
         left=new BitBlock3();
         right=new BitBlock3();
     }
+    public BitBlock6(char a)
+    {
 
+        int key=parseChar(a);
+        left=new BitBlock3(key/8);
+        right=new BitBlock3(key%8);
+    }
+    public BitBlock6(BitBlock6 dup)
+    {
+        left=new BitBlock3(dup.left);
+        right=new BitBlock3(dup.right);
+    }
+    public BitBlock6(BitBlock3 left,BitBlock3 right)
+    {
+
+        this.left=left;
+        this.right=right;
+    }
+
+    public String toString()
+    {
+        return left+" "+right;
+    }
+    public BitBlock6(int key)
+    {
+
+        this.left=new BitBlock3(key/8);
+        this.right=new BitBlock3(key%8);
+    }
+
+    public int parseChar(char a)
+    {
+        int key=-1;
+        if(Character.isLetter(a))
+        {
+            key=((int)a)-64;
+        }
+        else if(Character.isDigit(a))
+        {
+            key=27+((int)a)-48;
+        }
+        else if(a==' ')
+        {
+            key=38;
+        }
+        else if(a=='.')
+        {
+            key=37;
+        }
+    return key;
+
+    }
+    public BitBlock8 expand()
+    {
+        return new BitBlock8(left.expandLeft(right),right.expandRight(left));
+    }
     public BitBlock6 exor(BitBlock6 bitBlock)
     {
         BitBlock6 result= new BitBlock6();
@@ -22,5 +76,5 @@ public class BitBlock6 {
         return result;
 
     }
-    
+
 }

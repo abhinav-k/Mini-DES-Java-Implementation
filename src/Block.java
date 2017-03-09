@@ -5,4 +5,9 @@ public class Block {
     BitBlock6 left;
     BitBlock6 right;
 
+    public String toString()
+    {
+        return left+" "+right;
+    }
+
 }

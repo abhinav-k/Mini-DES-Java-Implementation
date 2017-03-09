@@ -5,10 +5,31 @@ public class BitBlock3 {
     private boolean bits[];
     final private int maxLength=3;
 
+    public String toString()
+    {
+        String ret="";
+        for(int i=0;i<maxLength;i++)
+        {
+           if(bits[i])
+               ret+="1";
+           else
+               ret+="0";
+        }
+        return ret;
+    }
     public BitBlock3()
     {
         bits=new boolean[maxLength];
     }
+    public BitBlock3(BitBlock3 dup)
+    {
+        bits=new boolean[maxLength];
+        for(int i=0;i<maxLength;i++)
+        {
+            this.bits[i]=dup.bits[i];
+        }
+    }
+
     public BitBlock3(boolean bits[],int start,int end)
     {
         int j=0;

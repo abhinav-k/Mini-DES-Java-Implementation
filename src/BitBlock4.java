@@ -12,7 +12,7 @@ public class BitBlock4 {
     public BitBlock4(boolean bits[],int start,int end)
     {
         int j=0;
-        bits=new boolean[maxLength];
+        this.bits=new boolean[maxLength];
         for(int i=start;i<=end;i++,j++)
         {
             this.bits[j]=bits[i];
@@ -27,6 +27,18 @@ public class BitBlock4 {
             bits[i]=!(value%(2)==0);
             value=value/2;
         }
+    }
+    public String toString()
+    {
+        String ret="";
+        for(int i=0;i<maxLength;i++)
+        {
+            if(bits[i])
+                ret+="1";
+            else
+                ret+="0";
+        }
+        return ret;
     }
     public BitBlock4 exor(BitBlock4 operand)
     {
@@ -53,7 +65,7 @@ public class BitBlock4 {
     public BitBlock3 desSubstitutionBoxSubs(int substituitionBox[][])
     {
         int intValue=this.getIntegerRepresentation();
-        int substituteValue= substituitionBox[intValue/(1>>(maxLength-1))][intValue%(1>>(maxLength-1))];
+        int substituteValue= substituitionBox[intValue/(1<<(maxLength-1))][intValue%(1<<(maxLength-1))];
         BitBlock3 result=new BitBlock3(substituteValue);
         return result;
     }
