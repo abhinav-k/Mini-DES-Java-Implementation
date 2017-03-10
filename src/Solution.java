@@ -11,6 +11,7 @@ public class Solution {
 
         System.out.println("Select an option:");
         System.out.println("1 - ECB");
+        System.out.println("2 - CBC");
         String option=io.nextLine();
         System.out.println("Enter Plain text:");
         String plainText=io.nextLine();
@@ -21,19 +22,35 @@ public class Solution {
         }
         switch (Integer.parseInt(option))
         {
-            case 1:
-                ECB ecb =new ECB();
+            case 1: {
+                ECB ecb = new ECB();
                 System.out.println(ecb);
-                BitBlock12 [] blocks=convertToBlocks(plainText);
+                BitBlock12[] blocks = convertToBlocks(plainText);
                 System.out.print("Intital plainText - ");
                 printTextinBinary(blocks);
-                BitBlock12 [] encryptedText= ecb.encrypt(plainText);
+                BitBlock12[] encryptedText = ecb.encrypt(blocks);
                 System.out.print("Encrypted text - ");
                 printTextinBinary(encryptedText);
                 System.out.print("Decrypted text - ");
-                BitBlock12 [] planeTextBlock= ecb.decrypt(encryptedText);
+                BitBlock12[] planeTextBlock = ecb.decrypt(encryptedText);
                 printTextinBinary(planeTextBlock);
                 break;
+            }
+            case 2:
+            {
+                CBC cbc = new CBC();
+                System.out.println(cbc);
+                BitBlock12[] blocks = convertToBlocks(plainText);
+                System.out.print("Intital plainText - ");
+                printTextinBinary(blocks);
+                BitBlock12[] encryptedText = cbc.encrypt(blocks);
+                System.out.print("Encrypted text - ");
+                printTextinBinary(encryptedText);
+                System.out.print("Decrypted text - ");
+                BitBlock12[] planeTextBlock = cbc.decrypt(encryptedText);
+                printTextinBinary(planeTextBlock);
+                break;
+            }
             default:
                 System.out.println("Invalid option. Exiting...");
         }
