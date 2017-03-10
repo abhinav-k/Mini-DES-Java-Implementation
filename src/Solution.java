@@ -12,6 +12,8 @@ public class Solution {
         System.out.println("Select an option:");
         System.out.println("1 - ECB");
         System.out.println("2 - CBC");
+        System.out.println("3 - OFB");
+        System.out.println("4 - CTR");
         String option=io.nextLine();
         System.out.println("Enter Plain text:");
         String plainText=io.nextLine();
@@ -20,6 +22,7 @@ public class Solution {
             System.out.println("Given text does not matches the <Last Name> <Std Id>. Format\n try again." );
             System.exit(1);
         }
+
         switch (Integer.parseInt(option))
         {
             case 1: {
@@ -48,6 +51,36 @@ public class Solution {
                 printTextinBinary(encryptedText);
                 System.out.print("Decrypted text - ");
                 BitBlock12[] planeTextBlock = cbc.decrypt(encryptedText);
+                printTextinBinary(planeTextBlock);
+                break;
+            }
+            case 3:
+            {
+                OFB ofc = new OFB();
+                System.out.println(ofc);
+                BitBlock12[] blocks = convertToBlocks(plainText);
+                System.out.print("Intital plainText - ");
+                printTextinBinary(blocks);
+                BitBlock12[] encryptedText = ofc.encrypt(blocks);
+                System.out.print("Encrypted text - ");
+                printTextinBinary(encryptedText);
+                System.out.print("Decrypted text - ");
+                BitBlock12[] planeTextBlock = ofc.decrypt(encryptedText);
+                printTextinBinary(planeTextBlock);
+                break;
+            }
+            case 4:
+            {
+                CTR ctr = new CTR();
+                System.out.println(ctr);
+                BitBlock12[] blocks = convertToBlocks(plainText);
+                System.out.print("Intital plainText - ");
+                printTextinBinary(blocks);
+                BitBlock12[] encryptedText = ctr.encrypt(blocks);
+                System.out.print("Encrypted text - ");
+                printTextinBinary(encryptedText);
+                System.out.print("Decrypted text - ");
+                BitBlock12[] planeTextBlock = ctr.decrypt(encryptedText);
                 printTextinBinary(planeTextBlock);
                 break;
             }

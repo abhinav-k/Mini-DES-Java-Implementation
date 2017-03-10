@@ -12,6 +12,14 @@ public class BitBlock12 {
         left=new BitBlock6();
         right=new BitBlock6();
     }
+
+    public BitBlock12(int value)
+    {
+
+        left=new BitBlock6(value/(1<<6));
+        right=new BitBlock6(value%(1<<6));
+    }
+
     public BitBlock12(char left,char right)
     {
 
