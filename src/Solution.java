@@ -37,6 +37,8 @@ public class Solution {
                 System.out.print("Decrypted text - ");
                 BitBlock12[] planeTextBlock = ecb.decrypt(encryptedText);
                 printTextinBinary(planeTextBlock);
+                System.out.print("Decrypted text in English- ");
+                printTextinString(planeTextBlock);
                 break;
             }
             case 2:
@@ -52,6 +54,8 @@ public class Solution {
                 System.out.print("Decrypted text - ");
                 BitBlock12[] planeTextBlock = cbc.decrypt(encryptedText);
                 printTextinBinary(planeTextBlock);
+                System.out.print("Decrypted text in English- ");
+                printTextinString(planeTextBlock);
                 break;
             }
             case 3:
@@ -67,6 +71,8 @@ public class Solution {
                 System.out.print("Decrypted text - ");
                 BitBlock12[] planeTextBlock = ofc.decrypt(encryptedText);
                 printTextinBinary(planeTextBlock);
+                System.out.print("Decrypted text in English- ");
+                printTextinString(planeTextBlock);
                 break;
             }
             case 4:
@@ -82,6 +88,8 @@ public class Solution {
                 System.out.print("Decrypted text - ");
                 BitBlock12[] planeTextBlock = ctr.decrypt(encryptedText);
                 printTextinBinary(planeTextBlock);
+                System.out.print("Decrypted text in English- ");
+                printTextinString(planeTextBlock);
                 break;
             }
             default:
@@ -116,4 +124,13 @@ public class Solution {
         }
         System.out.println();
     }
+    public void printTextinString(BitBlock12 [] block)
+    {
+        for(int i=0;i<block.length;i++)
+        {
+            System.out.print(block[i].decode());
+        }
+        System.out.println();
+    }
+
 }

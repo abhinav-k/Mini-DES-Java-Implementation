@@ -62,6 +62,12 @@ public class BitBlock12 {
         this.left=left;
         this.right=right;
     }
+
+    public String decode()
+    {
+        return left.decode()+""+right.decode();
+    }
+
     public void reverseBlocks()
     {
         BitBlock6 temp=this.left;

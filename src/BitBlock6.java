@@ -64,6 +64,32 @@ public class BitBlock6 {
     return key;
 
     }
+    public char decode()
+    {
+        int val1=left.getIntegerRepresentation();
+        int val2=right.getIntegerRepresentation();
+        int finalValue=(val1*8)+val2;
+        if(finalValue >=1 && finalValue<=26)
+        {
+            return (char)((int)'A'+finalValue-1 );
+        }
+        else if(finalValue >=27 && finalValue <=36)
+        {
+            return (char)((int)'0'+finalValue-27);
+        }
+        else if(finalValue == 38)
+        {
+            return ' ';
+        }
+        else if(finalValue == 37)
+        {
+            return '.';
+        }
+        else
+        {
+            return '*';
+        }
+    }
     public BitBlock8 expand()
     {
         return new BitBlock8(left.expandLeft(right),right.expandRight(left));
