@@ -14,14 +14,15 @@ public class Main {
         Solution s=new Solution();
         s.solve();
 
-       // BitBlock6 left=new BitBlock6(0b100010);
-        //BitBlock6 right=new BitBlock6(0b110101);
-        //Keygen key=new Keygen();
-        //key.generateKeyBool(0b111000111);
-        //System.out.print("Raw Key : ");
-       // key.printKey();
-       // BitBlock12 block=new BitBlock12(left,right);
-       // BitBlock12 output=block.fiestalfunction(new BitBlock8(key.getKey(1)));
-       // System.out.println(output);
+    /*   BitBlock6 left=new BitBlock6(0b100010);
+       BitBlock6 right=new BitBlock6(0b110101);
+       Keygen key=new Keygen();
+       key.generateKeyBool(0b100000111);
+       System.out.print("Raw Key : ");
+       key.printKey();
+       BitBlock12 block=new BitBlock12(left,right);
+       BitBlock12 output=block.fiestalfunction(new BitBlock8(key.getKey(2)));
+       System.out.println(output);
+       */
     }
 }

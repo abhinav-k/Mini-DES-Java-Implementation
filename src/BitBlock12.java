@@ -40,10 +40,10 @@ public class BitBlock12 {
     public BitBlock12 fiestalfunction(BitBlock8 key)
     {
         BitBlock8 expandedRight=right.expand();
-        System.out.println("Key : "+key);
-        System.out.println("Exp : "+expandedRight);
+        //System.out.println("Key : "+key);
+        //System.out.println("Exp : "+expandedRight);
         BitBlock8 exorResult=expandedRight.exor(key);
-        System.out.println("KeyEXOR : "+exorResult);
+        //System.out.println("KeyEXOR : "+exorResult);
         BitBlock6 result=exorResult.sBoxSubstitute();
         result=result.exor(left);
         return new BitBlock12(right,result);
@@ -54,7 +54,12 @@ public class BitBlock12 {
         this.left=left;
         this.right=right;
     }
-
+    public void reverseBlocks()
+    {
+        BitBlock6 temp=this.left;
+        this.left=this.right;
+        this.right=temp;
+    }
     public BitBlock12 exor(BitBlock12 bitBlock)
     {
         BitBlock12 result= new BitBlock12();

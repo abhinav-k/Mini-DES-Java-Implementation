@@ -33,7 +33,7 @@ public class BitBlock6 {
 
     public String toString()
     {
-        return left+" "+right;
+        return left+""+right;
     }
     public BitBlock6(int key)
     {

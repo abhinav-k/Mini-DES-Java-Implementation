@@ -9,7 +9,7 @@ public class Keygen {
     public Keygen()
     {}
 
-    public void printKey()
+    public String keyinString()
     {
         String ret="";
         for(int i=0;i<9;i++)
@@ -19,10 +19,20 @@ public class Keygen {
             else
                 ret+="0";
         }
-        System.out.println(ret) ;
+        return ret;
+    }
+    public void printKey()
+    {
+        System.out.println(keyinString()) ;
 
     }
+    public String toString()
+    {
+        String s= "Key - "+keyinString()+" Binary representation - "+keyinString();
 
+        return s;
+
+    }
     public int getKey(int round)
     {
 
@@ -55,7 +65,7 @@ public class Keygen {
     public void generateKeyFromDate()
     {
         Scanner io=new Scanner(System.in);
-        System.out.print("Enter date in format yyyy.mm.dd");
+        System.out.print("Enter date in format yyyy.mm.dd : ");
         String dateString=io.nextLine();
         String [] date=dateString.split("[.]");
         if(date.length!=3)
