@@ -28,7 +28,7 @@ public class Keygen {
     }
     public String toString()
     {
-        String s= "Key - "+keyinString()+" Binary representation - "+keyinString();
+        String s=  "Binary representation - "+keyinString();
 
         return s;
 

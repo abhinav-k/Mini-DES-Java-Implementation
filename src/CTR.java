@@ -40,7 +40,7 @@ public class CTR {String algorithm="Counter Mode";
         {
 
             BitBlock12 ctr=new BitBlock12((this.counter+i)%(1<<12));
-            output[i]=des.encrypt(plainText[i].exor(ctr));
+            output[i]=plainText[i].exor(des.encrypt((ctr)));
 
         }
         return output;
@@ -55,7 +55,7 @@ public class CTR {String algorithm="Counter Mode";
         {
 
             BitBlock12 ctr=new BitBlock12((this.counter+i)%(1<<12));
-            output[i]=des.encrypt(encText[i].exor(ctr));
+            output[i]=encText[i].exor(des.encrypt((ctr)));
 
         }
         return output;    }
